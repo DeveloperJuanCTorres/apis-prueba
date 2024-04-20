@@ -21,7 +21,7 @@ return [
 
     'allowed_origins' => ['*'],
 
-    'allowed_origins_patterns' => [env("FONTEND_URL","http:8000")],
+    'allowed_origins_patterns' => [env("FONTEND_URL","//localhost:8000")],
 
     'allowed_headers' => ['*localhost*'],
 
