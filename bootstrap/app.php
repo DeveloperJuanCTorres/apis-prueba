@@ -13,7 +13,14 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->validateCsrfTokens(except: [
-            env('APP_URL') . '/researchjspost'
+            'http://127.0.0.1:8000/students/store',
+            'http://127.0.0.1:8000/students/update',
+            'http://127.0.0.1:8000/students/search',
+            'http://127.0.0.1:8000/students/delete',
+            'http://127.0.0.1:8000/courses/store',
+            'http://127.0.0.1:8000/courses/update',
+            'http://127.0.0.1:8000/courses/search',
+            'http://127.0.0.1:8000/courses/delete',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

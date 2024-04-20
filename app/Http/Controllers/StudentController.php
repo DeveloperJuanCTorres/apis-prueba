@@ -33,22 +33,20 @@ class StudentController extends Controller
             $request->validate([
                 'name' => 'required|max:100',
                 'last_name' => 'required|max:100',
-                'age' => 'required|min:18',
+                'age' => 'required',
                 'card' => 'required|max:11',
                 'email' => 'required|unique:students',
             ]);
 
-            $student = Student::create($request->all());
+            $student = new Student();
+            $student->name = $request->name;
+            $student->last_name = $request->last_name;
+            $student->age = $request->age;
+            $student->card = $request->card;
+            $student->email = $request->email;
+            $student->courses = $request->courses;
 
-            // $student = new Student();
-            // $student->name = $request->name;
-            // $student->last_name = $request->last_name;
-            // $student->age = $request->age;
-            // $student->card = $request->card;
-            // $student->email = $request->email;
-            // $student->courses = $request->courses;
-
-            // $student->save();
+            $student->save();
             return $student;
         } catch (\Throwable $th) {
             return $th->getMessage();
