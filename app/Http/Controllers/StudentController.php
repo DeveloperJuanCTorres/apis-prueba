@@ -38,15 +38,18 @@ class StudentController extends Controller
                 'email' => 'required|unique:students',
             ]);
 
-            $student = new Student();
-            $student->name = $request->name;
-            $student->last_name = $request->last_name;
-            $student->age = $request->age;
-            $student->card = $request->card;
-            $student->email = $request->email;
-            $student->courses = $request->courses;
+            $student = Student::create($request->all());
 
-            $student->save();
+            // $student = new Student();
+            // $student->name = $request->name;
+            // $student->last_name = $request->last_name;
+            // $student->age = $request->age;
+            // $student->card = $request->card;
+            // $student->email = $request->email;
+            // $student->courses = $request->courses;
+
+            // $student->save();
+            return $student;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
