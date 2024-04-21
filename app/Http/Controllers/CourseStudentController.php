@@ -49,7 +49,7 @@ class CourseStudentController extends Controller
      */
     public function show(Request $request)
     {
-        $course_student = CourseStudent::findOrFail($request->id);
+        $course_student = CourseStudent::where('student_id', $request->id)->get();
         return $course_student;
     }
 
