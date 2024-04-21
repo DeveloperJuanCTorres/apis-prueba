@@ -47,9 +47,9 @@ class CourseStudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $course_student = CourseStudent::findOrFail($id);
+        $course_student = CourseStudent::findOrFail($request->id);
         return $course_student;
     }
 

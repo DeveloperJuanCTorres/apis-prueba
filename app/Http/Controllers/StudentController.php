@@ -55,9 +55,9 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(Request $request)
     {
-        $student_request = Student::findOrFail($student->id);
+        $student_request = Student::findOrFail($request->id);
         return $student_request;
     }
 
