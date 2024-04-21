@@ -105,7 +105,8 @@ class StudentController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $student_request = Student::destroy($request->id);
+            $id = $request->input('id');
+            $student_request = Student::destroy($id);
             return response()->json(['status' => true, 'msg' => "El Estudiante se eliminó correctamente"]);
         } catch (\Throwable $th) {
             return response()->json(['status' => false, 'msg' => $th->getMessage()]);

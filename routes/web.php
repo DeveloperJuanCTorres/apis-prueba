@@ -15,7 +15,7 @@ Route::get('/admins', [AdminController::class, 'index']);
 Route::post('/admins/store', [AdminController::class, 'store']);
 Route::put('/admins/update', [AdminController::class, 'update']);
 Route::get('/admins/search', [AdminController::class, 'show']);
-Route::delete('/admins/delete/{id}', [AdminController::class, 'destroy']);
+Route::delete('/admins/delete', [AdminController::class, 'destroy']);
 
 Route::get('/courses', [CourseController::class, 'index']);
 Route::post('/courses/store', [CourseController::class, 'store']);

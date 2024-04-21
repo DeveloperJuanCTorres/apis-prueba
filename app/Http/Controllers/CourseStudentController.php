@@ -47,9 +47,9 @@ class CourseStudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CourseStudent $courseStudent)
+    public function show($id)
     {
-        $course_student = CourseStudent::findOrFail($courseStudent->id);
+        $course_student = CourseStudent::findOrFail($id);
         return $course_student;
     }
 
@@ -75,7 +75,8 @@ class CourseStudentController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $course_student = CourseStudent::destroy($request->id);
+            $id = $request->input('id');
+            $course_student = CourseStudent::destroy($id);
             return response()->json(['status' => true, 'msg' => "La Asignacion se eliminó correctamente"]);
         } catch (\Throwable $th) {
             return response()->json(['status' => true, 'msg' => $th->getMessage()]);
